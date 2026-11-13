@@ -137,13 +137,7 @@ button { font-family: var(--font); cursor: pointer; }
   max-width: 480px; line-height: 1.65;
 }
 
-/* ── Page nav (bas) ───────────────────────────────────────────────────── */
-.page-nav {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: 36px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-}
+/* page-nav supprimé — navigation via la navbar uniquement */
 
 /* ── Buttons ──────────────────────────────────────────────────────────── */
 .btn {
