@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opacorm — Des outils digitaux pour l'Afrique</title>
-  <meta name="description" content="Opacorm développe des outils digitaux innovants pour les entreprises et créateurs africains. Découvrez CONEP, la plateforme de mise en relation entreprises ↔ créateurs de contenu." />
+  <title>Opacorm — Outils digitaux pour l'Afrique</title>
+  <meta name="description" content="Opacorm développe des outils digitaux pour les entreprises et créateurs africains." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav" id="nav">
-    <div class="nav-container">
-      <a href="#" class="nav-logo" data-section="hero">
-        <span class="logo-dot"></span>
-        Opacorm
-      </a>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <button class="nav-logo" data-goto="hero">
+        <span class="logo-mark">O</span>
+        <span class="logo-text">Opacorm</span>
+      </button>
       <ul class="nav-links">
-        <li><a href="#" data-section="about">À propos</a></li>
-        <li><a href="#" data-section="products">Produits</a></li>
-        <li><a href="#" data-section="contact">Contact</a></li>
+        <li><button data-goto="about">À propos</button></li>
+        <li><button data-goto="products">Produits</button></li>
+        <li><button data-goto="contact">Contact</button></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -30,224 +30,272 @@
     </div>
   </nav>
 
-  <!-- PAGES WRAPPER -->
-  <div class="pages" id="pages">
+  <!-- PAGES -->
+  <div class="pages">
 
-    <!-- PAGE 1 : HERO -->
-    <section class="page" id="hero">
-      <div class="page-bg">
-        <div class="hero-grid"></div>
-        <div class="hero-glow"></div>
-      </div>
-      <div class="container">
-        <div class="hero-badge">🌍 Fait pour l'Afrique</div>
-        <h1 class="hero-title">
-          Des outils digitaux<br />
-          <span class="gradient-text">qui changent la donne</span>
-        </h1>
-        <p class="hero-subtitle">
-          Opacorm construit des plateformes pensées pour les réalités africaines —
-          simples, rapides, accessibles sur mobile et sur PC.
-        </p>
-        <div class="hero-actions">
-          <button class="btn btn-primary" data-goto="products">Voir nos produits</button>
-          <button class="btn btn-ghost" data-goto="about">En savoir plus</button>
+    <!-- ── PAGE 1 : HERO ── -->
+    <section class="page active" id="hero">
+      <div class="hero-layout">
+
+        <!-- Logo bloc -->
+        <div class="hero-logo-block">
+          <div class="hero-logo-square">
+            <span>OA</span>
+          </div>
         </div>
-      </div>
-      <button class="scroll-hint" data-goto="about" aria-label="Défiler">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M6 9l6 6 6-6"/>
-        </svg>
-      </button>
-    </section>
 
-    <!-- PAGE 2 : À PROPOS -->
-    <section class="page" id="about">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Notre mission</span>
-          <h2 class="section-title">Pourquoi Opacorm ?</h2>
-          <p class="section-subtitle">
-            L'Afrique regorge de talents et d'entrepreneurs ambitieux. Ils méritent des outils
-            à la hauteur de leurs ambitions.
+        <!-- Texte -->
+        <div class="hero-text">
+          <p class="hero-label">Opacorm — Outils digitaux</p>
+          <h1 class="hero-title">
+            Construire l'infrastructure<br/>numérique de l'Afrique.
+          </h1>
+          <p class="hero-sub">
+            Nous concevons des plateformes adaptées aux réalités du continent —
+            robustes, accessibles, pensées pour durer.
           </p>
+          <div class="hero-cta">
+            <button class="btn btn-dark" data-goto="products">Nos produits</button>
+            <button class="btn btn-outline" data-goto="about">Notre mission</button>
+          </div>
         </div>
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">⚡</div>
+
+      </div>
+    </section>
+
+    <!-- ── PAGE 2 : À PROPOS ── -->
+    <section class="page" id="about">
+      <div class="page-inner">
+
+        <div class="page-heading">
+          <span class="page-label">Mission</span>
+          <h2>Pourquoi Opacorm ?</h2>
+          <p>L'Afrique mérite des outils numériques construits pour elle, pas adaptés depuis ailleurs.</p>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">
+              <!-- Feather: zap -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
             <h3>Performance</h3>
-            <p>Des applications rapides et réactives, optimisées pour les connexions mobiles africaines.</p>
+            <p>Conçus pour les réseaux mobiles africains. Rapides même avec une connexion limitée.</p>
           </div>
-          <div class="value-card">
-            <div class="value-icon">🔒</div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <!-- Feather: shield -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
             <h3>Sécurité</h3>
-            <p>Paiements sécurisés via escrow, contrats électroniques, données protégées.</p>
+            <p>Paiements sécurisés, contrats électroniques, données hébergées en conformité.</p>
           </div>
-          <div class="value-card">
-            <div class="value-icon">🌐</div>
-            <h3>Accessibilité</h3>
-            <p>Disponible sur Android, Windows et navigateur. Français et Anglais.</p>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <!-- Feather: monitor -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3>Multi-plateforme</h3>
+            <p>Android, Windows, navigateur. Une seule expérience, tous les appareils.</p>
           </div>
-          <div class="value-card">
-            <div class="value-icon">🤝</div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <!-- Feather: users -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
             <h3>Communauté</h3>
-            <p>Construits avec et pour les entrepreneurs, PME et créateurs africains.</p>
+            <p>Construits avec les entrepreneurs, PME et créateurs du continent.</p>
           </div>
         </div>
+
         <div class="page-nav">
-          <button class="btn btn-ghost btn-sm" data-goto="hero">← Retour</button>
-          <button class="btn btn-primary btn-sm" data-goto="products">Nos produits →</button>
+          <button class="btn btn-outline btn-sm" data-goto="hero">← Accueil</button>
+          <button class="btn btn-dark btn-sm" data-goto="products">Produits →</button>
         </div>
       </div>
     </section>
 
-    <!-- PAGE 3 : PRODUITS -->
-    <section class="page page-light" id="products">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Nos produits</span>
-          <h2 class="section-title">Ce qu'on construit</h2>
-          <p class="section-subtitle">Des solutions concrètes pour des problèmes réels.</p>
+    <!-- ── PAGE 3 : PRODUITS ── -->
+    <section class="page" id="products">
+      <div class="page-inner">
+
+        <div class="page-heading">
+          <span class="page-label">Produits</span>
+          <h2>Ce que nous construisons</h2>
+          <p>Des solutions directes à des problèmes concrets.</p>
         </div>
-        <div class="products-grid">
+
+        <div class="products-row">
 
           <!-- CONEP -->
-          <div class="product-card featured">
-            <div class="product-badge">Disponible</div>
-            <div class="product-icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="48" height="48" rx="12" fill="#7c3aed"/>
-                <path d="M12 24C12 17.373 17.373 12 24 12C30.627 12 36 17.373 36 24" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="24" cy="24" r="4" fill="white"/>
-                <path d="M24 28V36" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M16 32L24 36L32 32" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <div class="product-card">
+            <div class="product-top">
+              <div class="product-name-row">
+                <span class="product-name">CONEP</span>
+                <span class="product-status available">Disponible</span>
+              </div>
+              <p class="product-line">Connexion Entreprises × Créateurs de contenu</p>
             </div>
-            <h3 class="product-name">CONEP</h3>
-            <p class="product-tagline">Connexion Entreprises × Créateurs</p>
-            <p class="product-description">
-              Plateforme de mise en relation entre entreprises/PME et créateurs de contenu.
-              Campagnes, candidatures, contrats électroniques, paiement sécurisé en escrow.
+            <p class="product-desc">
+              Plateforme de mise en relation entre entreprises et créateurs —
+              campagnes, contrats électroniques, paiement sécurisé en escrow.
             </p>
-            <ul class="product-features">
-              <li>✓ Matching algorithmique créateurs ↔ campagnes</li>
-              <li>✓ Contrats électroniques avec signature double</li>
-              <li>✓ Paiement escrow sécurisé via Stripe</li>
-              <li>✓ Messagerie intégrée en temps réel</li>
-              <li>✓ Disponible Android &amp; Windows</li>
+            <ul class="product-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Matching algorithmique créateurs ↔ campagnes
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Contrats avec double signature électronique
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Paiement escrow Stripe — libération sur validation
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Messagerie interne temps réel
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Android &amp; Windows
+              </li>
             </ul>
             <div class="product-downloads">
-              <a href="https://files.opacorm.com/conep.apk"
-                 class="btn btn-download btn-android"
-                 download>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.523 15.341a.5.5 0 0 1-.691.155l-2.302-1.529a5 5 0 0 1-5.06 0l-2.302 1.529a.5.5 0 0 1-.536-.845l2.159-1.433A5 5 0 0 1 7 10.5V10a5 5 0 0 1 10 0v.5a5 5 0 0 1-1.791 3.818l2.159 1.433a.5.5 0 0 1 .155.59z"/>
-                </svg>
-                Android (.apk)
+              <a href="https://files.opacorm.com/conep.apk" class="btn btn-dark btn-sm" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                Android .apk
               </a>
-              <a href="https://files.opacorm.com/conep-windows.zip"
-                 class="btn btn-download btn-windows"
-                 download>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3 5.557L10.437 4.5v7.173H3V5.557zm0 12.886L10.437 19.5v-7.173H3v5.116zm8.562-13.057L21 4v7.673h-9.438V5.386zm0 13.228V12.327H21V20l-9.438-1.386z"/>
-                </svg>
-                Windows (.zip)
+              <a href="https://files.opacorm.com/conep-windows.zip" class="btn btn-outline btn-sm" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+                Windows .zip
               </a>
             </div>
           </div>
 
-          <!-- Prochainement -->
-          <div class="product-card upcoming">
-            <div class="product-badge upcoming-badge">Bientôt</div>
-            <div class="product-icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="48" height="48" rx="12" fill="#f3f4f6"/>
-                <path d="M14 24h20M24 14v20" stroke="#9ca3af" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
+          <!-- Prochain produit -->
+          <div class="product-card muted">
+            <div class="product-top">
+              <div class="product-name-row">
+                <span class="product-name">Prochain produit</span>
+                <span class="product-status soon">Bientôt</span>
+              </div>
+              <p class="product-line">En cours de développement</p>
             </div>
-            <h3 class="product-name">Prochain produit</h3>
-            <p class="product-tagline">En cours de développement</p>
-            <p class="product-description">
+            <p class="product-desc">
               Nous travaillons sur notre prochain outil pour l'écosystème africain.
-              Restez connectés.
+              Restez informés.
             </p>
-            <button class="btn btn-outline" data-goto="contact" style="width:100%;justify-content:center;">
+            <button class="btn btn-outline btn-sm" data-goto="contact">
               Être notifié
             </button>
           </div>
 
         </div>
+
         <div class="page-nav">
-          <button class="btn btn-ghost btn-sm" data-goto="about">← À propos</button>
-          <button class="btn btn-primary btn-sm" data-goto="contact">Contact →</button>
+          <button class="btn btn-outline btn-sm" data-goto="about">← Mission</button>
+          <button class="btn btn-dark btn-sm" data-goto="contact">Contact →</button>
         </div>
       </div>
     </section>
 
-    <!-- PAGE 4 : CONTACT -->
+    <!-- ── PAGE 4 : CONTACT ── -->
     <section class="page" id="contact">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Contact</span>
-          <h2 class="section-title">Parlons-en</h2>
-          <p class="section-subtitle">
-            Une question, un partenariat, ou juste envie de dire bonjour ?
-          </p>
-        </div>
-        <div class="contact-grid">
-          <a href="mailto:contact@opacorm.com" class="contact-card">
-            <div class="contact-icon">✉️</div>
-            <h3>Email</h3>
-            <p>contact@opacorm.com</p>
-          </a>
-          <a href="mailto:support@opacorm.com" class="contact-card">
-            <div class="contact-icon">🛟</div>
-            <h3>Support</h3>
-            <p>support@opacorm.com</p>
-          </a>
-          <a href="mailto:business@opacorm.com" class="contact-card">
-            <div class="contact-icon">💼</div>
-            <h3>Business</h3>
-            <p>business@opacorm.com</p>
-          </a>
-        </div>
-        <div class="page-nav">
-          <button class="btn btn-ghost btn-sm" data-goto="products">← Produits</button>
-          <button class="btn btn-primary btn-sm" data-goto="hero">↑ Accueil</button>
-        </div>
-      </div>
+      <div class="page-inner">
 
-      <!-- FOOTER intégré dans la dernière page -->
-      <footer class="footer">
-        <div class="container">
-          <div class="footer-inner">
-            <div class="footer-brand">
-              <span class="logo-dot"></span>
-              <span class="footer-logo">Opacorm</span>
-              <span class="footer-tagline">— Des outils digitaux pour l'Afrique</span>
-            </div>
-            <div class="footer-links">
-              <a href="mailto:contact@opacorm.com">Contact</a>
-              <span>·</span>
-              <a href="#">Mentions légales</a>
-              <span>·</span>
-              <a href="#">Confidentialité</a>
-              <span>·</span>
-              <span>© 2025 Opacorm</span>
-            </div>
-          </div>
+        <div class="page-heading">
+          <span class="page-label">Contact</span>
+          <h2>Travaillons ensemble</h2>
+          <p>Questions, partenariats, support — nous sommes disponibles.</p>
         </div>
-      </footer>
+
+        <div class="contact-list">
+          <a href="mailto:contact@opacorm.com" class="contact-row">
+            <div class="contact-icon">
+              <!-- Feather: mail -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Contact général</span>
+              <span class="contact-value">contact@opacorm.com</span>
+            </div>
+            <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="mailto:support@opacorm.com" class="contact-row">
+            <div class="contact-icon">
+              <!-- Feather: help-circle -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Support technique</span>
+              <span class="contact-value">support@opacorm.com</span>
+            </div>
+            <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="mailto:business@opacorm.com" class="contact-row">
+            <div class="contact-icon">
+              <!-- Feather: briefcase -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                <line x1="12" y1="12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Partenariats &amp; Business</span>
+              <span class="contact-value">business@opacorm.com</span>
+            </div>
+            <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="page-nav">
+          <button class="btn btn-outline btn-sm" data-goto="products">← Produits</button>
+          <button class="btn btn-dark btn-sm" data-goto="hero">↑ Accueil</button>
+        </div>
+
+        <footer class="footer">
+          <span>© 2025 Opacorm. Tous droits réservés.</span>
+          <div class="footer-links">
+            <a href="#">Mentions légales</a>
+            <span>·</span>
+            <a href="#">Confidentialité</a>
+          </div>
+        </footer>
+
+      </div>
     </section>
 
   </div><!-- /pages -->
 
-  <!-- DOTS NAVIGATION -->
-  <nav class="dots-nav" id="dotsNav" aria-label="Navigation sections">
-    <button class="dot active" data-goto="hero" aria-label="Accueil"></button>
-    <button class="dot" data-goto="about" aria-label="À propos"></button>
-    <button class="dot" data-goto="products" aria-label="Produits"></button>
-    <button class="dot" data-goto="contact" aria-label="Contact"></button>
+  <!-- DOTS -->
+  <nav class="dots" aria-label="Navigation">
+    <button class="dot active" data-goto="hero" title="Accueil"></button>
+    <button class="dot" data-goto="about" title="Mission"></button>
+    <button class="dot" data-goto="products" title="Produits"></button>
+    <button class="dot" data-goto="contact" title="Contact"></button>
   </nav>
 
   <script src="app.js"></script>
