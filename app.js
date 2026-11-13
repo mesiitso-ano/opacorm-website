@@ -36,7 +36,6 @@ function goTo(target) {
   });
 
   setTimeout(() => {
-    // Clean exit classes on old pages
     pages.forEach((p, i) => {
       if (i !== current) p.classList.remove('exit-up', 'exit-down');
     });
@@ -46,6 +45,7 @@ function goTo(target) {
 
 // ─── Init ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+
   // Activate hero
   document.querySelectorAll('.page')[0].classList.add('active');
   document.querySelectorAll('.dot')[0].classList.add('active');
@@ -72,37 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
   navToggle.addEventListener('click', () => {
     navLinksList.classList.toggle('open');
   });
-  // Close on nav link click (mobile)
   navLinksList.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => navLinksList.classList.remove('open'));
   });
 
-  // ── Mouse wheel ──
-  let wheelCooldown = false;
-  window.addEventListener('wheel', e => {
-    if (wheelCooldown || isAnimating) return;
-    wheelCooldown = true;
-    setTimeout(() => { wheelCooldown = false; }, 800);
-
-    if (e.deltaY > 0) goTo(current + 1);
-    else goTo(current - 1);
-  }, { passive: true });
-
-  // ── Touch swipe ──
-  let touchStartY = 0;
-  window.addEventListener('touchstart', e => {
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-  window.addEventListener('touchend', e => {
-    const delta = touchStartY - e.changedTouches[0].clientY;
-    if (Math.abs(delta) < 50) return;
-    if (delta > 0) goTo(current + 1);
-    else goTo(current - 1);
-  }, { passive: true });
-
-  // ── Keyboard arrows ──
-  window.addEventListener('keydown', e => {
-    if (e.key === 'ArrowDown' || e.key === 'PageDown') goTo(current + 1);
-    if (e.key === 'ArrowUp'   || e.key === 'PageUp')   goTo(current - 1);
-  });
+  // Scroll, swipe et clavier désactivés — navigation par boutons uniquement.
 });
