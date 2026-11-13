@@ -1,0 +1,118 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  OPACORM — Site Vitrine  |  logique.txt
+  Projet séparé de CONEP  |  Repo: github.com/mesiitso-ano/opacorm-website
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━ VUE D'ENSEMBLE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  But     : Site vitrine de la société Opacorm
+            → Présenter la marque et ses produits
+            → Permettre le téléchargement des apps (CONEP APK + Windows)
+            → Point de contact (email)
+
+  Domaine : opacorm.com
+  Hébergement : Vercel (déploiement auto depuis GitHub)
+  Repo GitHub : github.com/mesiitso-ano/opacorm-website
+
+  Ce projet N'inclut PAS :
+    - Le backend FastAPI (repo CONEP)
+    - L'admin panel (repo CONEP/admin)
+    - L'app Flutter (repo CONEP/frontend)
+
+━━ STRUCTURE DES FICHIERS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  OPACORM/
+  ├── index.html      ← Structure HTML du site (4 sections/pages)
+  ├── styles.css      ← Styles — fond blanc, design moderne
+  ├── app.js          ← Navigation fullpage (wheel, touch, clavier, dots)
+  ├── vercel.json     ← Config déploiement Vercel
+  └── logique.txt     ← CE FICHIER — suivi et décisions
+
+━━ DESIGN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Fond        : Blanc (#ffffff) — pas sombre comme l'ancienne version
+  Typographie : Inter (Google Fonts)
+  Couleur     : Violet (#7c3aed) comme couleur principale
+  Navigation  : Fullpage — une section visible à la fois, pas de scroll
+  Transitions : fade + slide (350ms cubic-bezier)
+  Dots nav    : barre de points à droite (desktop uniquement)
+
+━━ SECTIONS (PAGES) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Page 1 — Hero (#hero)
+    - Badge "🌍 Fait pour l'Afrique"
+    - Titre principal + gradient text
+    - Sous-titre descriptif
+    - 2 CTA : "Voir nos produits" + "En savoir plus"
+    - Flèche animée vers le bas
+
+  Page 2 — À propos (#about)
+    - 4 value cards : Performance, Sécurité, Accessibilité, Communauté
+    - Navigation bas de page : ← Retour | Nos produits →
+
+  Page 3 — Produits (#products)
+    - Carte CONEP (featured) :
+        * Badge "Disponible"
+        * Description + 5 features
+        * Bouton Android APK → https://files.opacorm.com/conep.apk
+        * Bouton Windows ZIP → https://files.opacorm.com/conep-windows.zip
+    - Carte "Prochain produit" (placeholder)
+    - Navigation bas de page
+
+  Page 4 — Contact (#contact)
+    - 3 contact cards : Email / Support / Business
+    - Footer intégré (© Opacorm, liens légaux)
+
+━━ NAVIGATION ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Méthodes de navigation :
+    - Molette souris (wheel)
+    - Swipe tactile (touch)
+    - Flèches clavier (↑ ↓, PageUp, PageDown)
+    - Clics sur les dots (droite)
+    - Clics sur les boutons data-goto
+    - Liens de la navbar (data-section)
+
+  Cooldown molette : 800ms (évite les sauts de pages multiples)
+  Swipe minimum : 50px de déplacement
+
+━━ LIENS DE TÉLÉCHARGEMENT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Android : https://files.opacorm.com/conep.apk
+  Windows : https://files.opacorm.com/conep-windows.zip
+
+  Ces liens pointent vers Cloudflare R2 (bucket conep-files).
+  Les fichiers doivent être uploadés sur R2 pour que les boutons fonctionnent.
+
+━━ DÉPLOIEMENT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Étapes :
+  1. Repo GitHub : github.com/mesiitso-ano/opacorm-website ✅ (créé)
+  2. Vercel → New Project → importer opacorm-website
+  3. Root directory : / (racine)
+  4. Framework : Other (site statique)
+  5. Deploy
+  6. Settings → Domains → Ajouter opacorm.com + www.opacorm.com
+  7. Vercel donne un CNAME → configurer sur LWS :
+       A     @    76.76.21.21        (IP Vercel)
+       CNAME www  cname.vercel-dns.com
+
+━━ TODO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [ ] Connecter le repo à Vercel
+  [ ] Configurer le domaine opacorm.com sur Vercel
+  [ ] Configurer les DNS sur LWS
+  [ ] Uploader conep.apk sur R2 → https://files.opacorm.com/conep.apk
+  [ ] Uploader conep-windows.zip sur R2 → https://files.opacorm.com/conep-windows.zip
+  [ ] Ajouter le favicon (logo Opacorm)
+  [ ] Ajouter une vraie section téléchargement avec compteur ?
+  [ ] SEO : og:image, twitter card
+  [ ] Rédiger les pages Mentions légales + Confidentialité
+
+━━ HISTORIQUE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  2026-11-13  Création du projet OPACORM séparé de CONEP
+              - Nouveau dossier C:\Users\DOM\Desktop\OPACORM\
+              - Design fond blanc (vs fond sombre dans CONEP/website)
+              - Navigation fullpage (une section à la fois)
+              - Repo GitHub : mesiitso-ano/opacorm-website

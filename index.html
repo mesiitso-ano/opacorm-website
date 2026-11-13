@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opacorm — Des outils digitaux pour l'Afrique</title>
+  <meta name="description" content="Opacorm développe des outils digitaux innovants pour les entreprises et créateurs africains. Découvrez CONEP, la plateforme de mise en relation entreprises ↔ créateurs de contenu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" data-section="hero">
+        <span class="logo-dot"></span>
+        Opacorm
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" data-section="about">À propos</a></li>
+        <li><a href="#" data-section="products">Produits</a></li>
+        <li><a href="#" data-section="contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGES WRAPPER -->
+  <div class="pages" id="pages">
+
+    <!-- PAGE 1 : HERO -->
+    <section class="page" id="hero">
+      <div class="page-bg">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+      </div>
+      <div class="container">
+        <div class="hero-badge">🌍 Fait pour l'Afrique</div>
+        <h1 class="hero-title">
+          Des outils digitaux<br />
+          <span class="gradient-text">qui changent la donne</span>
+        </h1>
+        <p class="hero-subtitle">
+          Opacorm construit des plateformes pensées pour les réalités africaines —
+          simples, rapides, accessibles sur mobile et sur PC.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-goto="products">Voir nos produits</button>
+          <button class="btn btn-ghost" data-goto="about">En savoir plus</button>
+        </div>
+      </div>
+      <button class="scroll-hint" data-goto="about" aria-label="Défiler">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+    </section>
+
+    <!-- PAGE 2 : À PROPOS -->
+    <section class="page" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Notre mission</span>
+          <h2 class="section-title">Pourquoi Opacorm ?</h2>
+          <p class="section-subtitle">
+            L'Afrique regorge de talents et d'entrepreneurs ambitieux. Ils méritent des outils
+            à la hauteur de leurs ambitions.
+          </p>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">⚡</div>
+            <h3>Performance</h3>
+            <p>Des applications rapides et réactives, optimisées pour les connexions mobiles africaines.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🔒</div>
+            <h3>Sécurité</h3>
+            <p>Paiements sécurisés via escrow, contrats électroniques, données protégées.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌐</div>
+            <h3>Accessibilité</h3>
+            <p>Disponible sur Android, Windows et navigateur. Français et Anglais.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Communauté</h3>
+            <p>Construits avec et pour les entrepreneurs, PME et créateurs africains.</p>
+          </div>
+        </div>
+        <div class="page-nav">
+          <button class="btn btn-ghost btn-sm" data-goto="hero">← Retour</button>
+          <button class="btn btn-primary btn-sm" data-goto="products">Nos produits →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 : PRODUITS -->
+    <section class="page page-light" id="products">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Nos produits</span>
+          <h2 class="section-title">Ce qu'on construit</h2>
+          <p class="section-subtitle">Des solutions concrètes pour des problèmes réels.</p>
+        </div>
+        <div class="products-grid">
+
+          <!-- CONEP -->
+          <div class="product-card featured">
+            <div class="product-badge">Disponible</div>
+            <div class="product-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="#7c3aed"/>
+                <path d="M12 24C12 17.373 17.373 12 24 12C30.627 12 36 17.373 36 24" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="4" fill="white"/>
+                <path d="M24 28V36" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M16 32L24 36L32 32" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="product-name">CONEP</h3>
+            <p class="product-tagline">Connexion Entreprises × Créateurs</p>
+            <p class="product-description">
+              Plateforme de mise en relation entre entreprises/PME et créateurs de contenu.
+              Campagnes, candidatures, contrats électroniques, paiement sécurisé en escrow.
+            </p>
+            <ul class="product-features">
+              <li>✓ Matching algorithmique créateurs ↔ campagnes</li>
+              <li>✓ Contrats électroniques avec signature double</li>
+              <li>✓ Paiement escrow sécurisé via Stripe</li>
+              <li>✓ Messagerie intégrée en temps réel</li>
+              <li>✓ Disponible Android &amp; Windows</li>
+            </ul>
+            <div class="product-downloads">
+              <a href="https://files.opacorm.com/conep.apk"
+                 class="btn btn-download btn-android"
+                 download>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.523 15.341a.5.5 0 0 1-.691.155l-2.302-1.529a5 5 0 0 1-5.06 0l-2.302 1.529a.5.5 0 0 1-.536-.845l2.159-1.433A5 5 0 0 1 7 10.5V10a5 5 0 0 1 10 0v.5a5 5 0 0 1-1.791 3.818l2.159 1.433a.5.5 0 0 1 .155.59z"/>
+                </svg>
+                Android (.apk)
+              </a>
+              <a href="https://files.opacorm.com/conep-windows.zip"
+                 class="btn btn-download btn-windows"
+                 download>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 5.557L10.437 4.5v7.173H3V5.557zm0 12.886L10.437 19.5v-7.173H3v5.116zm8.562-13.057L21 4v7.673h-9.438V5.386zm0 13.228V12.327H21V20l-9.438-1.386z"/>
+                </svg>
+                Windows (.zip)
+              </a>
+            </div>
+          </div>
+
+          <!-- Prochainement -->
+          <div class="product-card upcoming">
+            <div class="product-badge upcoming-badge">Bientôt</div>
+            <div class="product-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="#f3f4f6"/>
+                <path d="M14 24h20M24 14v20" stroke="#9ca3af" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="product-name">Prochain produit</h3>
+            <p class="product-tagline">En cours de développement</p>
+            <p class="product-description">
+              Nous travaillons sur notre prochain outil pour l'écosystème africain.
+              Restez connectés.
+            </p>
+            <button class="btn btn-outline" data-goto="contact" style="width:100%;justify-content:center;">
+              Être notifié
+            </button>
+          </div>
+
+        </div>
+        <div class="page-nav">
+          <button class="btn btn-ghost btn-sm" data-goto="about">← À propos</button>
+          <button class="btn btn-primary btn-sm" data-goto="contact">Contact →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4 : CONTACT -->
+    <section class="page" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title">Parlons-en</h2>
+          <p class="section-subtitle">
+            Une question, un partenariat, ou juste envie de dire bonjour ?
+          </p>
+        </div>
+        <div class="contact-grid">
+          <a href="mailto:contact@opacorm.com" class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Email</h3>
+            <p>contact@opacorm.com</p>
+          </a>
+          <a href="mailto:support@opacorm.com" class="contact-card">
+            <div class="contact-icon">🛟</div>
+            <h3>Support</h3>
+            <p>support@opacorm.com</p>
+          </a>
+          <a href="mailto:business@opacorm.com" class="contact-card">
+            <div class="contact-icon">💼</div>
+            <h3>Business</h3>
+            <p>business@opacorm.com</p>
+          </a>
+        </div>
+        <div class="page-nav">
+          <button class="btn btn-ghost btn-sm" data-goto="products">← Produits</button>
+          <button class="btn btn-primary btn-sm" data-goto="hero">↑ Accueil</button>
+        </div>
+      </div>
+
+      <!-- FOOTER intégré dans la dernière page -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-inner">
+            <div class="footer-brand">
+              <span class="logo-dot"></span>
+              <span class="footer-logo">Opacorm</span>
+              <span class="footer-tagline">— Des outils digitaux pour l'Afrique</span>
+            </div>
+            <div class="footer-links">
+              <a href="mailto:contact@opacorm.com">Contact</a>
+              <span>·</span>
+              <a href="#">Mentions légales</a>
+              <span>·</span>
+              <a href="#">Confidentialité</a>
+              <span>·</span>
+              <span>© 2025 Opacorm</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+  </div><!-- /pages -->
+
+  <!-- DOTS NAVIGATION -->
+  <nav class="dots-nav" id="dotsNav" aria-label="Navigation sections">
+    <button class="dot active" data-goto="hero" aria-label="Accueil"></button>
+    <button class="dot" data-goto="about" aria-label="À propos"></button>
+    <button class="dot" data-goto="products" aria-label="Produits"></button>
+    <button class="dot" data-goto="contact" aria-label="Contact"></button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
