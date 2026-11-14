@@ -1,14 +1,13 @@
 // ─── Thinking Orb — sphère en points ───────────────────────────────────
-(function() {
+(function () {
   const canvas = document.getElementById('orbCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const W = canvas.width, H = canvas.height;
-  const R = 13;       // rayon de la sphère
-  const N = 120;      // nombre de points
+  const R = 14;
+  const N = 140;
   let angle = 0;
 
-  // Génération des points sur la sphère (distribution de Fibonacci)
   const pts = [];
   const golden = Math.PI * (3 - Math.sqrt(5));
   for (let i = 0; i < N; i++) {
@@ -21,8 +20,6 @@
   function draw() {
     ctx.clearRect(0, 0, W, H);
     const cos = Math.cos(angle), sin = Math.sin(angle);
-
-    // Trier par z pour le rendu (arrière → avant)
     const transformed = pts.map(p => {
       const x = p.x * cos - p.z * sin;
       const z = p.x * sin + p.z * cos;
@@ -32,97 +29,98 @@
     for (const p of transformed) {
       const sx = W / 2 + p.x * R;
       const sy = H / 2 - p.y * R;
-      // Points à l'avant plus grands et opaques
-      const t = (p.z + 1) / 2; // 0 = arrière, 1 = avant
-      const size = 0.6 + t * 1.2;
-      const alpha = 0.15 + t * 0.75;
+      const t = (p.z + 1) / 2;
+      const size  = 0.5 + t * 1.3;
+      const alpha = 0.1  + t * 0.85;
       ctx.beginPath();
       ctx.arc(sx, sy, size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(10,10,10,${alpha})`;
+      ctx.fillStyle = `rgba(10,10,10,${alpha.toFixed(2)})`;
       ctx.fill();
     }
-
-    angle += 0.012;
+    angle += 0.014;
     requestAnimationFrame(draw);
   }
   draw();
 })();
+
+// ─── Page navigation ────────────────────────────────────────────────────
 const SECTIONS = ['hero', 'about', 'products', 'contact'];
 let current = 0;
 let isAnimating = false;
 
-// ─── Go to a section by id or index ────────────────────────────────────
 function goTo(target) {
-  const idx = typeof target === 'number'
-    ? target
-    : SECTIONS.indexOf(target);
-
+  const idx = typeof target === 'number' ? target : SECTIONS.indexOf(target);
   if (idx < 0 || idx >= SECTIONS.length || idx === current || isAnimating) return;
 
   isAnimating = true;
-  const direction = idx > current ? 'up' : 'down';
-
+  const dir = idx > current ? 'up' : 'down';
   const pages = document.querySelectorAll('.page');
   const dots  = document.querySelectorAll('.dot');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const btns  = document.querySelectorAll('.nav-btn');
 
-  // Exit current
   pages[current].classList.remove('active');
-  pages[current].classList.add(direction === 'up' ? 'exit-up' : 'exit-down');
+  pages[current].classList.add(dir === 'up' ? 'exit-up' : 'exit-down');
 
-  // Enter next
   current = idx;
   pages[current].classList.remove('exit-up', 'exit-down');
   pages[current].classList.add('active');
 
   // Sync dots
   dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  // Sync nav buttons
+  btns.forEach(b => b.classList.toggle('active', b.dataset.goto === SECTIONS[current]));
 
-  // Sync nav links
-  navLinks.forEach(a => {
-    a.classList.toggle('active', a.dataset.section === SECTIONS[current]);
-  });
+  // Ferme les panneaux produit quand on change de page
+  document.querySelectorAll('.app-panel').forEach(p => p.classList.remove('open'));
 
   setTimeout(() => {
-    pages.forEach((p, i) => {
-      if (i !== current) p.classList.remove('exit-up', 'exit-down');
-    });
+    pages.forEach((p, i) => { if (i !== current) p.classList.remove('exit-up', 'exit-down'); });
     isAnimating = false;
   }, 400);
 }
 
-// ─── Init ───────────────────────────────────────────────────────────────
+// ─── Init ────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-
-  // Activate hero
+  // État initial
   document.querySelectorAll('.page')[0].classList.add('active');
   document.querySelectorAll('.dot')[0].classList.add('active');
+  const firstBtn = document.querySelector('.nav-btn[data-goto="hero"]');
+  if (firstBtn) firstBtn.classList.add('active');
 
-  // ── data-goto buttons ──
+  // Boutons data-goto
   document.querySelectorAll('[data-goto]').forEach(el => {
-    el.addEventListener('click', e => {
-      e.preventDefault();
-      goTo(el.dataset.goto);
+    el.addEventListener('click', e => { e.preventDefault(); goTo(el.dataset.goto); });
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links  = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('button').forEach(b => {
+      b.addEventListener('click', () => links.classList.remove('open'));
+    });
+  }
+
+  // ── Panneaux produit ──
+  document.querySelectorAll('.app-icon-wrap:not(.muted)').forEach(wrap => {
+    wrap.addEventListener('click', () => {
+      const app = wrap.dataset.app;
+      const panel = document.getElementById('panel-' + app);
+      if (!panel) return;
+      const isOpen = panel.classList.contains('open');
+      // Ferme tous
+      document.querySelectorAll('.app-panel').forEach(p => p.classList.remove('open'));
+      // Ouvre si c'était fermé
+      if (!isOpen) panel.classList.add('open');
     });
   });
 
-  // ── Nav links with data-section ──
-  document.querySelectorAll('[data-section]').forEach(el => {
-    el.addEventListener('click', e => {
-      e.preventDefault();
-      goTo(el.dataset.section);
+  document.querySelectorAll('[data-close]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const panel = document.getElementById('panel-' + btn.dataset.close);
+      if (panel) panel.classList.remove('open');
     });
   });
-
-  // ── Mobile menu toggle ──
-  const navToggle = document.getElementById('navToggle');
-  const navLinksList = document.querySelector('.nav-links');
-  navToggle.addEventListener('click', () => {
-    navLinksList.classList.toggle('open');
-  });
-  navLinksList.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => navLinksList.classList.remove('open'));
-  });
-
-  // Scroll, swipe et clavier désactivés — navigation par boutons uniquement.
 });
