@@ -15,12 +15,10 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <button class="nav-logo" data-goto="hero">
-        <span class="logo-mark">O</span>
-        <span class="logo-text">Opacorm</span>
-      </button>
+      <button class="nav-logo" data-goto="hero">Opacorm</button>
       <ul class="nav-links">
-        <li><button data-goto="about">À propos</button></li>
+        <li><button data-goto="hero">Accueil</button></li>
+        <li><button data-goto="about">Mission</button></li>
         <li><button data-goto="products">Produits</button></li>
         <li><button data-goto="contact">Contact</button></li>
       </ul>
@@ -37,16 +35,22 @@
     <section class="page active" id="hero">
       <div class="hero-layout">
 
-        <!-- Logo bloc -->
+        <!-- Logo bloc — iframe du vrai logo Opacorm -->
         <div class="hero-logo-block">
           <div class="hero-logo-square">
-            <span>OA</span>
+            <iframe
+              src="logo_opacorm.html"
+              scrolling="no"
+              frameborder="0"
+              title="Logo Opacorm"
+              class="logo-iframe"
+            ></iframe>
           </div>
         </div>
 
         <!-- Texte -->
         <div class="hero-text">
-          <p class="hero-label">Opacorm — Outils digitaux</p>
+          <p class="hero-label">Outils digitaux pour l'Afrique</p>
           <h1 class="hero-title">
             Construire l'infrastructure<br/>numérique de l'Afrique.
           </h1>
