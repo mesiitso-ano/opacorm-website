@@ -87,14 +87,42 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!panel) return;
       const open = panel.classList.contains('open');
       document.querySelectorAll('.app-panel').forEach(p => p.classList.remove('open'));
-      if (!open) panel.classList.add('open');
+      document.querySelectorAll('.panel-overlay').forEach(o => o.classList.remove('open'));
+      if (!open) {
+        panel.classList.add('open');
+        // Positionner le panel à côté de l'icône
+        const rect = wrap.getBoundingClientRect();
+        const panelW = 480;
+        const margin = 16;
+        let left = rect.right + margin;
+        let top  = rect.top;
+        // Si ça dépasse à droite, on place à gauche
+        if (left + panelW > window.innerWidth - margin) {
+          left = rect.left - panelW - margin;
+        }
+        // Si ça dépasse en bas, on remonte
+        if (top + panel.offsetHeight > window.innerHeight - margin) {
+          top = window.innerHeight - panel.offsetHeight - margin;
+        }
+        if (top < 70) top = 70;
+        panel.style.left = left + 'px';
+        panel.style.top  = top  + 'px';
+        panel.style.transform = 'none';
+
+        const overlay = document.getElementById('overlay-' + wrap.dataset.app);
+        if (overlay) overlay.classList.add('open');
+      }
     });
   });
 
   document.querySelectorAll('[data-close]').forEach(btn => {
     btn.addEventListener('click', e => {
       e.stopPropagation();
-      closePanel(btn.dataset.close);
+      const id = btn.dataset.close;
+      const panel = document.getElementById('panel-' + id);
+      const overlay = document.getElementById('overlay-' + id);
+      if (panel) panel.classList.remove('open');
+      if (overlay) overlay.classList.remove('open');
     });
   });
 
