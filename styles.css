@@ -84,7 +84,7 @@ button { font-family: var(--font); cursor: pointer; }
 .page {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   background: var(--white);
   opacity: 0; pointer-events: none;
   transform: translateY(24px);
@@ -139,22 +139,11 @@ button { font-family: var(--font); cursor: pointer; }
   padding: 0 40px; max-width: 1100px; width: 100%;
 }
 .hero-logo-block { flex-shrink: 0; }
-.hero-logo-stack {
-  position: relative;
-  width: 320px; height: 355px;
-}
-/* PNG noir : 333×369 → affiché 320×355 */
-.logo-black {
-  position: absolute; top: 0; left: 0;
-  width: 320px; height: auto;
+.hero-logo-img {
+  width: 280px;
+  height: auto;
   display: block;
-}
-/* PNG rouge : 249×277 → même échelle (×0.96) → 239×266, aligné sur fond noir */
-.logo-red {
-  position: absolute;
-  width: 239px; height: auto;
-  top: 91px; left: 19px;
-  display: block;
+  object-fit: contain;
 }
 .hero-text { flex: 1; }
 .hero-label {
