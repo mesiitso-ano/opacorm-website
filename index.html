@@ -16,12 +16,18 @@
   <nav class="nav">
     <div class="nav-inner">
       <button class="nav-logo" data-goto="hero">Opacorm</button>
-      <ul class="nav-links">
-        <li><button data-goto="hero">Accueil</button></li>
-        <li><button data-goto="about">Mission</button></li>
-        <li><button data-goto="products">Produits</button></li>
-        <li><button data-goto="contact">Contact</button></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><button data-goto="hero">Accueil</button></li>
+          <li><button data-goto="about">Mission</button></li>
+          <li><button data-goto="products">Produits</button></li>
+          <li><button data-goto="contact">Contact</button></li>
+        </ul>
+        <!-- Thinking orb sphère -->
+        <div class="thinking-orbs">
+          <canvas id="orbCanvas" width="36" height="36"></canvas>
+        </div>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -35,16 +41,11 @@
     <section class="page active" id="hero">
       <div class="hero-layout">
 
-        <!-- Logo Opacorm — libre, sans carré -->
+        <!-- Logo Opacorm — deux calques superposés -->
         <div class="hero-logo-block">
-          <div class="hero-logo-free">
-            <iframe
-              src="logo_opacorm.html"
-              scrolling="no"
-              frameborder="0"
-              title="Logo Opacorm"
-              class="logo-iframe"
-            ></iframe>
+          <div class="hero-logo-stack">
+            <img src="logo_dans_word.files/logo_dans_word1.png" alt="" class="logo-layer logo-black" />
+            <img src="logo_dans_word.files/logo_dans_word0.png" alt="" class="logo-layer logo-red" />
           </div>
         </div>
 
