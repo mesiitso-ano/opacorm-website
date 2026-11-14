@@ -1,4 +1,4 @@
-/* ── Reset ────────────────────────────────────────────────────────────── */
+﻿/* ── Reset ────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -222,14 +222,31 @@ button { font-family: var(--font); cursor: pointer; }
 .app-tag.soon { background: var(--grey-pale); color: var(--grey); border: 1px solid var(--border); }
 
 /* Panneau de téléchargement */
+/* Overlay qui bloque les clics derriere */
+.panel-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0,0,0,0.18);
+}
+.panel-overlay.open { display: block; }
+
 .app-panel {
   display: none;
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(12px);
+  z-index: 400;
+  width: 480px;
+  max-width: calc(100vw - 48px);
   border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 28px;
+  border-radius: 16px;
+  padding: 32px;
   background: var(--white);
-  animation: panel-in 0.25s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  animation: panel-in 0.25s ease forwards;
 }
 .app-panel.open { display: block; }
 @keyframes panel-in {

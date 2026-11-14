@@ -94,8 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-close]').forEach(btn => {
     btn.addEventListener('click', e => {
       e.stopPropagation();
-      const p = document.getElementById('panel-' + btn.dataset.close);
-      if (p) p.classList.remove('open');
+      closePanel(btn.dataset.close);
     });
   });
 
